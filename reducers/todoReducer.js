@@ -1,4 +1,7 @@
-import  {ADD_TODO} from '../actions'
+import  {
+  ADD_TODO,
+  FILTER_LIST
+} from '../actions'
 
 const initialState = {
   todos: [],
@@ -12,6 +15,11 @@ export default function reducer (state = initialState, action) {
         ...state,
         todos: [...state.todos, action.todo]
       }
+      case FILTER_LIST:
+        return {
+          ...state,
+          filter: action.filter
+        }
     default:
       return state
   }

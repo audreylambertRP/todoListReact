@@ -1,6 +1,6 @@
 import React from 'react'
 import TodoApp from '../components/TodoApp'
-import {addTodo} from '../actions'
+import {addTodo, changeFilter} from '../actions'
 
 const filterTodo = {
   on: (todo) => todo.status === true,
@@ -30,6 +30,7 @@ export default class TodoContainer extends React.Component {
     // })
   }
   handleDelete = (id) => {
+    // this.props.store.dispatch(deleteTodo({id:id}))
     this.setState({
       todos: this.state.todos.filter((todo) => todo.id !== id)
     })
@@ -42,8 +43,9 @@ export default class TodoContainer extends React.Component {
     console.log('2 =', elem.status);
     this.setState({ todos: this.state.todos })
   }
-  handleFilter = (status) => {
-    this.setState({ filter: status })
+  handleFilter = (filter) => {
+    this.props.store.dispatch(changeFilter(filter))
+    // this.setState({ filter: filter })
   }
 
   render() {
