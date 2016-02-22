@@ -5,6 +5,40 @@ import  {
   DELETE_TODO
 } from '../actions'
 
+
+// class JSONRequest {
+// ​
+//   constructor (protocol, url, callback) {
+//     this._HttpReq = new XMLHttpRequest()
+//     this._HttpReq.open(protocol, url, true)
+//     this._HttpReq.onload = (e) => {
+//       if (this._HttpReq.status === 200) {
+//         this._json = JSON.parse(this._HttpReq.responseText)
+//       } else {
+//         this._json = undefined
+//       }
+//       callback(this._json)
+//     }
+//     this._HttpReq.send(null)
+//   }
+// ​
+//   abort = () => {
+//     this._HttpReq.abort()
+//   }
+// ​
+// }
+
+// USAGE
+// ​const initialState;
+// var req = new JSONRequest('GET', '/todos', (data) => {
+//   initialState = {
+  //  todos: [],
+  //  filter: 'all'
+//  }
+// })
+// ​
+
+
 const initialState = {
   todos: [],
   filter: 'all'

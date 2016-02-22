@@ -14,6 +14,13 @@ app.get("/", function(req, res) {
          res.sendFile(__dirname + '/index.html')
 })
 
+app.get("/data", function(req, res) {
+    var data = [{id:0, text:"test", status:true}, {id:1, text:"retest", status:true}]
+    res.setHeader('Content-Type', 'application/json')
+    //res.send(data)
+    res.send(JSON.stringify(data))
+})
+
 app.listen(port, function(error) {
             if (error) {
               console.error(error)
