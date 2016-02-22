@@ -2,7 +2,6 @@ import React from 'react'
 
 const InputTodo = ({onAdd}) => {
   let DOMNode = null;
-
   const handleAdd = () => (e) => {
     e.preventDefault();
     onAdd(DOMNode.value);
@@ -17,18 +16,14 @@ const InputTodo = ({onAdd}) => {
 }
 
 const Todo = ({todo, onDelete, onModifyStatus}) => {
-  //const deleteTodo = (id, e) => {
   const handleDelete = (id) => (e) => {
     e.preventDefault();
     onDelete(id);
   };
-
   const handleStatus = (id) => (e) => {
     e.preventDefault();
     onModifyStatus(id);
   };
-
-  //return (<li key={todo.id}> {todo.text} <button onClick={handleDelete.bind(null, todo.id)}> "J'ai fini" </button> </li>)
   return (<li>{todo.text} <button onClick={handleStatus(todo.id)}> "Modify status" </button> <button onClick={handleDelete(todo.id)}> "Delete" </button> </li>)
 }
 
@@ -47,7 +42,6 @@ const DisplayOptions = ({filter}) => {
     e.preventDefault();
     filter(status);
   };
-
   return (<div><button onClick={handleFilter('all')}>"All"</button> <button onClick={handleFilter('on')}>"Todo"</button> <button onClick={handleFilter('off')}>"Done"</button></div>)
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import TodoApp from '../components/TodoApp'
-import {addTodo, changeFilter} from '../actions'
+import {addTodo, changeFilter, changeTodoStatus, deleteTodo} from '../actions'
 
 const filterTodo = {
   on: (todo) => todo.status === true,
@@ -9,9 +9,6 @@ const filterTodo = {
 }
 
 export default class TodoContainer extends React.Component {
-  //state = {todos: [{id:0, text:"test", status:true}, {id:1, text:"retest", status:true}], filter: "all"};
-  //uniqueId = 2;
-
   state = {}
 
   componentWillMount = () => {
@@ -25,31 +22,19 @@ export default class TodoContainer extends React.Component {
 
   handleAdd = (text) => {
     this.props.store.dispatch(addTodo({text:text}))
-    // this.setState({
-    //   todos: [...this.state.todos, {text, id: this.uniqueId++, status:true}]
-    // })
   }
   handleDelete = (id) => {
-    // this.props.store.dispatch(deleteTodo({id:id}))
-    this.setState({
-      todos: this.state.todos.filter((todo) => todo.id !== id)
-    })
+    this.props.store.dispatch(deleteTodo(id))
   }
   handleStatus = (id) => {
-    let elem = this.state.todos.find((todo) => todo.id === id);
-    console.log('1 =', elem.status);
+    this.props.store.dispatch(changeTodoStatus(id))
 
-    elem.status = !elem.status;
-    console.log('2 =', elem.status);
-    this.setState({ todos: this.state.todos })
   }
   handleFilter = (filter) => {
     this.props.store.dispatch(changeFilter(filter))
-    // this.setState({ filter: filter })
   }
 
   render() {
-    // return <TodoApp todos={this.state.todos} onDelete={this.handleDelete} onAdd={this.handleAdd} />
     return <TodoApp filter={this.handleFilter} todos={this.state.todos.filter(filterTodo[this.state.filter])} onDelete={this.handleDelete} onAdd={this.handleAdd} onModifyStatus={this.handleStatus} />
   }
 }
