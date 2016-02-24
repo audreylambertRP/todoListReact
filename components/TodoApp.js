@@ -37,15 +37,17 @@ const TodoList = ({todos, onDelete, onModifyStatus}) => {
   )
 }
 
+export default TodoList, InputTodo 
+/*
 const DisplayOptions = ({filter}) => {
   const handleFilter = (status) => (e) => {
     e.preventDefault();
     filter(status);
   };
   return (<div><button onClick={handleFilter('all')}>"All"</button> <button onClick={handleFilter('on')}>"Todo"</button> <button onClick={handleFilter('off')}>"Done"</button></div>)
-}
+}*/
 
-export default ({filter, todos, onDelete, onAdd, onModifyStatus}) => {
+/*export default ({filter, todos, onDelete, onAdd, onModifyStatus}) => {
   return (
     <div>
       <h1>My super todo unicorn</h1>
@@ -54,4 +56,4 @@ export default ({filter, todos, onDelete, onAdd, onModifyStatus}) => {
       <InputTodo onAdd={onAdd} />
     </div>
   );
-}
+}*/
