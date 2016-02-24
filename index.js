@@ -7,7 +7,6 @@ import App from './container/TodoContainer.js'
 
 const store = createStore (
   todoReducer
-  //, undefined
 )
 
 ReactDOM.render(

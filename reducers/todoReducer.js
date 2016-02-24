@@ -28,17 +28,6 @@ import  {
 // ​
 // }
 
-// USAGE
-// ​const initialState;
-// var req = new JSONRequest('GET', '/todos', (data) => {
-//   initialState = {
-  //  todos: [],
-  //  filter: 'all'
-//  }
-// })
-// ​
-
-
 const initialState = {
   todos: [],
   filter: 'all'

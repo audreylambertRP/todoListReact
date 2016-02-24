@@ -37,22 +37,10 @@ export const TodoList = ({todos, onDelete, onModifyStatus}) => {
   )
 }
 
-/*
-const DisplayOptions = ({filter}) => {
+export const DisplayOptions = ({filter}) => {
   const handleFilter = (status) => (e) => {
     e.preventDefault();
     filter(status);
   };
   return (<div><button onClick={handleFilter('all')}>"All"</button> <button onClick={handleFilter('on')}>"Todo"</button> <button onClick={handleFilter('off')}>"Done"</button></div>)
-}*/
-
-/*export default ({filter, todos, onDelete, onAdd, onModifyStatus}) => {
-  return (
-    <div>
-      <h1>My super todo unicorn</h1>
-      <TodoList todos={todos} onDelete={onDelete} onModifyStatus={onModifyStatus} />
-      <DisplayOptions filter={filter} />
-      <InputTodo onAdd={onAdd} />
-    </div>
-  );
-}*/
+}
