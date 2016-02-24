@@ -5,9 +5,11 @@ import {bindActionCreators} from 'redux'
 //import TodoApp from '../components/TodoApp'
 //import {addTodo, changeFilter, changeTodoStatus, deleteTodo} from '../actions'
 import * as actionCreators from '../actions'
-import TodoList from '../components/TodoApp'
-//import DisplayOptions from '../components/TodoApp'
-import InputTodo from '../components/TodoApp'
+import {InputTodo, TodoList} from '../components/TodoApp'
+
+
+console.log('todolist = ', TodoList)
+console.log('inputtodo =', InputTodo)
 
 const filterTodo = {
   on: (todo) => todo.status === true,
@@ -53,7 +55,6 @@ const App = ({todos, filterTodo, dispatch, actions}) => {
     <div>
     <h1>My super todo unicorn</h1>
     <TodoList todos={todos} onDelete={actions.onDelete} onModifyStatus={actions.onModifyStatus} />
-    //<DisplayOptions filter={filter} />
     <InputTodo onAdd={actions.onAdd} />
     </div>
   );
@@ -75,6 +76,5 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(
-  (mapStateToProps, mapDispatchToProps)(App)
-)
+export default connect(mapStateToProps, mapDispatchToProps) (App)
+

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const InputTodo = ({onAdd}) => {
+export const InputTodo = ({onAdd}) => {
   let DOMNode = null;
   const handleAdd = () => (e) => {
     e.preventDefault();
@@ -27,7 +27,7 @@ const Todo = ({todo, onDelete, onModifyStatus}) => {
   return (<li>{todo.text} <button onClick={handleStatus(todo.id)}> "Modify status" </button> <button onClick={handleDelete(todo.id)}> "Delete" </button> </li>)
 }
 
-const TodoList = ({todos, onDelete, onModifyStatus}) => {
+export const TodoList = ({todos, onDelete, onModifyStatus}) => {
   if (!todos.length) return <p>You have nothing to do, lucky you!</p>
   const list = todos.map((todo) => <Todo key={todo.id} todo={todo} onDelete={onDelete} onModifyStatus={onModifyStatus} />);
   return (
@@ -37,7 +37,6 @@ const TodoList = ({todos, onDelete, onModifyStatus}) => {
   )
 }
 
-export default TodoList, InputTodo 
 /*
 const DisplayOptions = ({filter}) => {
   const handleFilter = (status) => (e) => {

@@ -5,16 +5,18 @@ export const DELETE_TODO ='DELETE_TODO'
 
 let id = 0
 
-export function addTodo(todo) {
-  function maker(todo) {
-    todo.id = id++
-    todo.status = true
-    todo.createdAt = new Date()
-    return todo
+export function onAdd(text) {
+  function maker(text) {
+    return {
+      id: id++,
+      status: true,
+      text,
+      createdAt: new Date()
+     }
   }
   return {
     type: ADD_TODO,
-    todo:maker(todo)
+    todo:maker(text)
   }
 }
 
@@ -25,14 +27,14 @@ export function changeFilter(filter) {
   }
 }
 
-export function changeTodoStatus(id) {
+export function onModifyStatus(id) {
   return {
     type: CHANGE_TODO_STATUS,
     id:id
   }
 }
 
-export function deleteTodo(id) {
+export function onDelete(id) {
   return {
     type: DELETE_TODO,
     id:id
